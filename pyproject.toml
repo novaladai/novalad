@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "novalad"
+version = "0.1.0"
+description = "Novalad: AI-powered platform for transforming unstructured documents like PDFs and PowerPoints into machine-readable, structured data."
+authors = ["Novalad <info@novalad.ai>"]
+license = "Apache-2.0"
+readme = "README.md"
+homepage = "https://www.novalad.ai"
+repository = "https://github.com/novaladai"
+documentation = "https://www.novalad.ai"
+keywords = ["AI", "PDF", "PowerPoint", "data extraction", "document parsing", "unstructured data","layout parser"]
+
+[tool.poetry.urls]
+"API Docs" = "https://novalad.apidog.io/"
+"Google Colab" = "https://colab.research.google.com/github/novalad-ai/novalad/blob/main/examples/demo.ipynb"
+
+[tool.poetry.dependencies]
+python = ">=3.12"
+markdown = "^3.7"                    
+pandas = "^2.0"
+numpy = "^1.24"
+dash = "^2.18.2"
+pillow = "^0.6.21"
+tqdm = "^4.67.1"
+requests = "^2.31.0"
+matplotlib = "^3.7"
+PyMuPDF = "^1.25.2"
+httpx = "^0.28.1"
+opencv-python = "^4.11.0.86"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
