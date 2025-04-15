@@ -1,18 +1,30 @@
-import dash
+import os
+import sys
+import json
+
+# Universal imports
 import dash_cytoscape as cyto
 from dash import html, dcc
 from dash.dependencies import Input, Output
-import os
+
+# Use JupyterDash in Colab, Dash locally
+try:
+    if "google.colab" in sys.modules:
+        from jupyter_dash import JupyterDash as DashApp
+    else:
+        from dash import Dash as DashApp
+except ImportError:
+    from dash import Dash as DashApp
 
 
-def render_knowledge_graph(data: dict, save: bool = False) -> None:
+def render_knowledge_graph(data: dict, save: bool = False, filename: str = "kg.html") -> None:
     """
     Render an interactive knowledge graph using Dash and Dash Cytoscape.
 
     Args:
         data (dict): Knowledge graph data with nodes and edges.
-        save (bool): If True, saves the graph as a static HTML file. Default is False.
-        filename (str): Base name for the output HTML file if save=True.
+        save (bool): If True, saves the graph as a static HTML file.
+        filename (str): Output filename for HTML export.
 
     Returns:
         None
@@ -44,8 +56,7 @@ def render_knowledge_graph(data: dict, save: bool = False) -> None:
             }
         })
 
-    # Initialize Dash App
-    app = dash.Dash(__name__)
+    app = DashApp(__name__)
 
     app.layout = html.Div([
         html.H3("Interactive Knowledge Graph"),
@@ -55,7 +66,7 @@ def render_knowledge_graph(data: dict, save: bool = False) -> None:
             id="cytoscape",
             elements=elements,
             layout={"name": "cose"},
-            style={"width": "800px", "height": "500px"},
+            style={"width": "100%", "height": "500px"},
             stylesheet=[
                 {"selector": "node", "style": {
                     "content": "data(label)",
@@ -88,34 +99,11 @@ def render_knowledge_graph(data: dict, save: bool = False) -> None:
         return "Click on a node to see details"
 
     if save:
-        # from dash import DiskcacheManager
-        # import dash.dash  # needed to access the app layout string
-
-        # Save layout HTML
-        app.index_string = f"""
-        <!DOCTYPE html>
-        <html>
-            <head>
-                {{%metas%}}
-                <title>Knowledge Graph</title>
-                {{%favicon%}}
-                {{%css%}}
-            </head>
-            <body>
-                {{%app_entry%}}
-                <footer>
-                    {{%config%}}
-                    {{%scripts%}}
-                    {{%renderer%}}
-                </footer>
-            </body>
-        </html>
-        """
-
-        # Save layout to file (using Dash's HTML string)
-        app_path = "kg.html"
-        with open(app_path, "w", encoding="utf-8") as f:
-            f.write(app.index_string.replace("{%app_entry%}", app._repr_html_()))
-
+        app.run_server(mode="inline", debug=False)
+        # Use selenium or dash-export to save actual HTML content if needed
+        print("Note: Static export not implemented in this version.")
     else:
-        app.run_server(debug=True)
+        if "google.colab" in sys.modules:
+            app.run_server(mode="inline", debug=True)
+        else:
+            app.run_server(debug=True)

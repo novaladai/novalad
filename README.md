@@ -5,13 +5,13 @@
 **Novalad** is an AI-powered platform that transforms chaotic, unstructured files—such as PDFs and PowerPoints—into beautifully organized, machine-readable data 💡. Designed for developers, data teams, and enterprises, Novalad efficiently handles complex layouts, tables, graphs, and multi-format data using a multi-model, map-reduce approach 🧩.
 
 ---
-[![Google Colab](https://img.shields.io/badge/Colab-Notebook-F9AB00?logo=google-colab&logoColor=white)](https://colab.research.google.com/github/novalad-ai/novalad/blob/main/examples/demo.ipynb)
+[![Google Colab](https://img.shields.io/badge/Colab-Notebook-F9AB00?logo=google-colab&logoColor=white)](https://colab.research.google.com/drive/1iJzt2Zx9veS_q15hwrXtK8l1HObXqTJN?usp=sharing)
 [![PyPI version](https://img.shields.io/pypi/v/novalad)](https://pypi.org/project/novalad/)
 [![Python Version](https://img.shields.io/pypi/pyversions/novalad)](https://pypi.org/project/novalad/)
-[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/novaladai)
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/novaladai/novalad)
 [![Website](https://img.shields.io/badge/Website-live-blue)](https://www.novalad.ai/)
 [![Docs](https://img.shields.io/badge/Documentation-Online-brightgreen)](https://docs.novalad.ai)
-[![API Docs](https://img.shields.io/badge/API-Reference-informational)](https://docs.novalad.ai/api)
+[![API Docs](https://img.shields.io/badge/API-Reference-informational)](https://novalad.apidog.io/)
 [![License Apache](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
 ---
 
