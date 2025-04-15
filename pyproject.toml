@@ -16,16 +16,16 @@ keywords = ["AI", "PDF", "PowerPoint", "data extraction", "document parsing", "u
 
 [tool.poetry.dependencies]
 python = ">=3.8"
-markdown = "^3.7"                    
-pandas = "^2.0"
-numpy = "^1.24"
-dash = "^2.18.2"
-pillow = "^11.1.0"
-tqdm = "^4.67.1"
-requests = "^2.31.0"
-matplotlib = "^3.7"
-PyMuPDF = "^1.25.2"
-httpx = "^0.28.1"
+markdown = "*"
+pandas = "*"
+numpy = "*"
+dash = "*"
+pillow = "*"
+tqdm = "*"
+requests = "*"
+matplotlib = "*"
+PyMuPDF = "*"
+httpx = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
