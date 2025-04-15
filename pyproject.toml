@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "novalad"
-version = "0.1.1"
+version = "0.1.2"
 description = "Novalad: AI-powered platform for transforming unstructured documents like PDFs and PowerPoints into machine-readable, structured data."
 authors = ["Novalad <info@novalad.ai>"]
 license = "Apache-2.0"
@@ -20,6 +20,7 @@ markdown = "*"
 pandas = "*"
 numpy = "*"
 dash = "*"
+dash_cytoscape = "*"
 pillow = "*"
 tqdm = "*"
 requests = "*"

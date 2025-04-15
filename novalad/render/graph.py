@@ -88,8 +88,8 @@ def render_knowledge_graph(data: dict, save: bool = False) -> None:
         return "Click on a node to see details"
 
     if save:
-        from dash import DiskcacheManager
-        import dash.dash  # needed to access the app layout string
+        # from dash import DiskcacheManager
+        # import dash.dash  # needed to access the app layout string
 
         # Save layout HTML
         app.index_string = f"""
