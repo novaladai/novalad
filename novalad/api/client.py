@@ -79,14 +79,12 @@ class NovaladClient(BaseAPIClient):
         :raises InvalidArgumentException: If both or neither of file_path and folder_path are provided.
         :raises APIError: If the upload process encounters an error.
         """
-        self.uploaded = False
         if (file_path is None and folder_path is None) or (file_path is not None and folder_path is not None):
             raise InvalidArgumentException("You must provide either 'file_path' or 'folder_path', but not both.")
         
         if file_path and is_filepath(file_path):
             upload_url = self._upload_url(file_path)
             self._upload_to_cloud(file_path, upload_url)
-            self.uploaded = True
         
         elif folder_path and is_folderpath(folder_path):
             files = get_files_from_folder(folder_path)
@@ -97,7 +95,6 @@ class NovaladClient(BaseAPIClient):
             for file in tqdm(supported_files, desc="Uploading files"):
                 upload_url = self._upload_url(file)
                 self._upload_to_cloud(file, upload_url)
-            self.uploaded = True
 
     def run(self, url : str = None,
             skip_non_important_images : bool = True,
@@ -110,9 +107,6 @@ class NovaladClient(BaseAPIClient):
             "skip_insights" : skip_image_insights,
             "skip_header_footer" : skip_header_footer
         }
-
-        if not self.uploaded:
-            raise FileNotUploaded("File not Uploaded, Either the path/url is invalid or document is corrupted.")
 
         if (self.file_id is None and url is None) or (self.file_id is not None and url is not None):
             raise InvalidArgumentException("You must upload local file or provide 'url', but not both.")

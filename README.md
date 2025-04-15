@@ -5,7 +5,7 @@
 **Novalad** is an AI-powered platform that transforms chaotic, unstructured files—such as PDFs and PowerPoints—into beautifully organized, machine-readable data 💡. Designed for developers, data teams, and enterprises, Novalad efficiently handles complex layouts, tables, graphs, and multi-format data using a multi-model, map-reduce approach 🧩.
 
 ---
-[![Google Colab](https://img.shields.io/badge/Colab-Notebook-F9AB00?logo=google-colab&logoColor=white)](https://colab.research.google.com/drive/1iJzt2Zx9veS_q15hwrXtK8l1HObXqTJN?usp=sharing)
+[![Google Colab](https://img.shields.io/badge/Colab-Notebook-F9AB00?logo=google-colab&logoColor=white)](https://colab.research.google.com/gist/connectaman/b18d3d16d4a02862bf3e4b001a163547/novalad-demo.ipynb)
 [![PyPI version](https://img.shields.io/pypi/v/novalad)](https://pypi.org/project/novalad/)
 [![Python Version](https://img.shields.io/pypi/pyversions/novalad)](https://pypi.org/project/novalad/)
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?logo=github&logoColor=white)](https://github.com/novaladai/novalad)
