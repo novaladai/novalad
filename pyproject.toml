@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "novalad"
-version = "0.1.9"
+version = "0.1.10"
 description = "Novalad: AI-powered platform for transforming unstructured documents like PDFs and PowerPoints into machine-readable, structured data."
 authors = ["Novalad <info@novalad.ai>"]
 license = "Apache-2.0"
