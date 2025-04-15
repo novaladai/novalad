@@ -15,7 +15,7 @@ keywords = ["AI", "PDF", "PowerPoint", "data extraction", "document parsing", "u
 "Google Colab" = "https://colab.research.google.com/github/novalad-ai/novalad/blob/main/examples/demo.ipynb"
 
 [tool.poetry.dependencies]
-python = ">=3.12"
+python = ">=3.8"
 markdown = "^3.7"                    
 pandas = "^2.0"
 numpy = "^1.24"
@@ -26,7 +26,6 @@ requests = "^2.31.0"
 matplotlib = "^3.7"
 PyMuPDF = "^1.25.2"
 httpx = "^0.28.1"
-opencv-python = "^4.11.0.86"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
