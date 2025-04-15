@@ -11,6 +11,9 @@ class InvalidArgumentException(Exception):
     pass
 
 
+class FileNotUploaded(Exception):
+    pass
+
 class FileFormatNotSupportedException(Exception):
     pass
 

@@ -1,40 +1,34 @@
-import os
 import sys
 import json
-
-# Universal imports
 import dash_cytoscape as cyto
 from dash import html, dcc
 from dash.dependencies import Input, Output
 
 # Use JupyterDash in Colab, Dash locally
-try:
-    if "google.colab" in sys.modules:
-        from jupyter_dash import JupyterDash as DashApp
-    else:
-        from dash import Dash as DashApp
-except ImportError:
-    from dash import Dash as DashApp
+if "google.colab" in sys.modules:
+    from jupyter_dash import JupyterDash
+    DashApp = JupyterDash
+else:
+    from dash import Dash
+    DashApp = Dash
 
 
-def render_knowledge_graph(data: dict, save: bool = False, filename: str = "kg.html") -> None:
+def render_knowledge_graph(data: dict) -> None:
     """
     Render an interactive knowledge graph using Dash and Dash Cytoscape.
 
     Args:
         data (dict): Knowledge graph data with nodes and edges.
-        save (bool): If True, saves the graph as a static HTML file.
-        filename (str): Output filename for HTML export.
 
     Returns:
         None
     """
-    data = data["data"].get("knowledge_graphs", {})
+    graph_data = data["data"].get("knowledge_graphs", {})
 
-    # Convert data to Cytoscape elements
+    # Convert to Cytoscape elements
     elements = []
 
-    for node in data["nodes"]:
+    for node in graph_data["nodes"]:
         elements.append({
             "data": {
                 "id": node["id"],
@@ -47,7 +41,7 @@ def render_knowledge_graph(data: dict, save: bool = False, filename: str = "kg.h
             }
         })
 
-    for edge in data["edges"]:
+    for edge in graph_data["edges"]:
         elements.append({
             "data": {
                 "source": edge["fromId"],
@@ -56,8 +50,8 @@ def render_knowledge_graph(data: dict, save: bool = False, filename: str = "kg.h
             }
         })
 
+    # Build the app
     app = DashApp(__name__)
-
     app.layout = html.Div([
         html.H3("Interactive Knowledge Graph"),
         html.Div(id="node-info", style={"margin": "10px", "font-size": "14px", "color": "#F58634"}),
@@ -98,12 +92,8 @@ def render_knowledge_graph(data: dict, save: bool = False, filename: str = "kg.h
             return f"Selected Node: {node_data['hover_text']}"
         return "Click on a node to see details"
 
-    if save:
-        app.run_server(mode="inline", debug=False)
-        # Use selenium or dash-export to save actual HTML content if needed
-        print("Note: Static export not implemented in this version.")
+    # Show app inline if in Colab, else open in browser
+    if "google.colab" in sys.modules:
+        app.run_server(mode='inline', debug=True)
     else:
-        if "google.colab" in sys.modules:
-            app.run_server(mode="inline", debug=True)
-        else:
-            app.run_server(debug=True)
+        app.run_server(debug=True)
