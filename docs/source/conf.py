@@ -5,6 +5,9 @@
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
+import os
+import sys
+sys.path.append("../..")  # adjust path as needed
 
 project = 'novalad'
 copyright = '2025, novalad'
