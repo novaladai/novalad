@@ -94,6 +94,6 @@ def render_knowledge_graph(data: dict) -> None:
 
     # Show app inline if in Colab, else open in browser
     if "google.colab" in sys.modules:
-        app.run_server(mode='inline', debug=True)
+        app.run(mode='inline', debug=True)
     else:
-        app.run_server(debug=True)
+        app.run(debug=True)

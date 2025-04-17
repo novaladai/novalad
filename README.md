@@ -12,6 +12,7 @@
 [![Website](https://img.shields.io/badge/Website-live-blue)](https://www.novalad.ai/)
 [![Docs](https://img.shields.io/badge/Documentation-Online-brightgreen)](https://docs.novalad.ai)
 [![API Docs](https://img.shields.io/badge/API-Reference-informational)](https://novalad.apidog.io/)
+[![Watch the video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=aoiZqHQ4Um4)
 [![License Apache](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
 ---
 

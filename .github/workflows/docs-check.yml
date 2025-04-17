@@ -1,29 +1,40 @@
-name: Build Sphinx Docs
+name: Build and Deploy Sphinx Docs to S3
 
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - main  # or any branch you prefer
 
 jobs:
-  build-docs:
+  deploy-docs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'  # match your version
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r docs/requirements.txt
+    - name: Install Python dependencies
+      run: |
+        pip install -r docs/requirements.txt
+        pip install -r requirements.txt
 
-      - name: Build docs
-        run: |
-          sphinx-build -b html docs/source docs/build/html
+    - name: Build Sphinx HTML documentation
+      working-directory: docs
+      run: |
+        make html SPHINXBUILD="sphinx-build -b html source build/html"
+
+    - name: Sync built docs to S3
+      uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'  # change as needed
+        SOURCE_DIR: 'docs/build/html'
