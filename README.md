@@ -4,6 +4,9 @@
 
 **Novalad** is an AI-powered platform that transforms chaotic, unstructured files—such as PDFs and PowerPoints—into beautifully organized, machine-readable data 💡. Designed for developers, data teams, and enterprises, Novalad efficiently handles complex layouts, tables, graphs, and multi-format data using a multi-model, map-reduce approach 🧩.
 
+[View Novalad Extraction Result](https://www.novalad.ai/comparision.html)
+
+
 ---
 [![Google Colab](https://img.shields.io/badge/Colab-Notebook-F9AB00?logo=google-colab&logoColor=white)](https://colab.research.google.com/gist/connectaman/92cbb44bcb17a474e32ce9c194effb97/novalad-demo.ipynb)
 [![PyPI version](https://img.shields.io/pypi/v/novalad)](https://pypi.org/project/novalad/)
@@ -12,7 +15,7 @@
 [![Website](https://img.shields.io/badge/Website-live-blue)](https://www.novalad.ai/)
 [![Docs](https://img.shields.io/badge/Documentation-Online-brightgreen)](https://docs.novalad.ai)
 [![API Docs](https://img.shields.io/badge/API-Reference-informational)](https://novalad.apidog.io/)
-[![Watch the video](https://img.youtube.com/vi/YOUTUBE_VIDEO_ID/0.jpg)](https://www.youtube.com/watch?v=aoiZqHQ4Um4)
+[![YouTube](https://img.shields.io/badge/Watch-Video-red?logo=youtube&logoColor=white)](https://www.youtube.com/watch?v=aoiZqHQ4Um4)
 [![License Apache](https://img.shields.io/badge/License-Apache%202.0-blue)](https://www.apache.org/licenses/LICENSE-2.0)
 ---
 
