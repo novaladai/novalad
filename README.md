@@ -182,6 +182,8 @@ render_elements(path, json_response)
 # To save images locally:
 # render_elements(path, json_response, save_dir=r"C:\path\to\save\visualization")
 ```
+![Knowledge Graph](static/images/extraction_hightlight.png)
+
 
 **Render Markdown Output**:
 
@@ -190,6 +192,7 @@ from novalad import render_markdown
 
 render_markdown(markdown_output)
 ```
+![Knowledge Graph](static/images/extraction_markdown.png)
 
 **Render Knowledge Graph**:
 
@@ -198,6 +201,8 @@ from novalad import render_knowledge_graph
 
 render_knowledge_graph(kg_output)
 ```
+![Knowledge Graph](static/images/extraction_kg.png)
+
 
 ---
 
