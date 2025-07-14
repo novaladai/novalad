@@ -114,7 +114,7 @@ while True:
     status = client.status()
     if status["status"] in ["success", "failed"]:
         break
-    time.sleep(30)  # Check every 30 seconds
+    time.sleep(60)  # Check every 30 seconds
     print(".", end="")
 print("\n", status)
 ```
