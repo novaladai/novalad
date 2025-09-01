@@ -1,2 +1,13 @@
 httpx==0.28.1
 tqdm==4.67.1
+markdown
+pandas
+numpy
+dash
+jupyter-dash
+dash-cytoscape
+pillow
+matplotlib
+PyMuPDF
+requests
+opencv-python

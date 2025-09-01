@@ -75,6 +75,11 @@ class BaseAPIClient:
 
         except httpx.HTTPStatusError as e:
             print(f"HTTP Error: {e.response.status_code} - {e.response.text}")
+            raise APIError(message=f"HTTP Error {e.response.status_code}: {e.response.text}")
 
-        except httpx.RequestError:
+        except httpx.RequestError as e:
             print("Network error occurred!")
+            raise APIError(message=f"Network error: {str(e)}")
+        
+        # If we reach here, something unexpected happened
+        raise APIError(message="Unexpected error in API call")

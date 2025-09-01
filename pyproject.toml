@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "novalad"
-version = "0.1.14"
+version = "0.1.15"
 description = "Novalad: AI-powered platform for transforming unstructured documents like PDFs and PowerPoints into machine-readable, structured data."
 authors = ["Novalad <info@novalad.ai>"]
 license = "Apache-2.0"
@@ -28,6 +28,7 @@ requests = "*"
 matplotlib = "*"
 PyMuPDF = "*"
 httpx = "*"
+opencv-python = "*"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]

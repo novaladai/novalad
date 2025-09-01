@@ -43,16 +43,32 @@ class NovaladClient(BaseAPIClient):
             raise FileFormatNotSupportedException(f"Only supports {SUPPORTED_FILE_EXTENSIONS}")
         
         params = {"filename": filename}
+        print(f"DEBUG: Upload request details:")
+        print(f"  - Filename: {filename}")
+        print(f"  - Full path: {file_path}")
+        print(f"  - API endpoint: {UPLOAD_ENDPOINT}")
+        print(f"  - Request params: {params}")
+        
         response = self._api_call(route=UPLOAD_ENDPOINT, params=params)
+        
+        print(f"DEBUG: API Response:")
+        print(f"  - Response: {response}")
+        print(f"  - Response type: {type(response)}")
+        if isinstance(response, dict):
+            print(f"  - Response keys: {list(response.keys())}")
         
         self.file_id = response.get("fileid")
         upload_url = response.get("upload_url")
+        
+        print(f"DEBUG: Extracted values:")
+        print(f"  - file_id: {self.file_id}")
+        print(f"  - upload_url: {upload_url}")
 
         if not upload_url:
             raise APIError(message="Could not retrieve upload URL from the API.")
-
+        
         return upload_url
-    
+
     def _upload_to_cloud(self, file_path: str, upload_url: str) -> None:
         """
         Uploads a file to cloud storage using a pre-signed URL.
@@ -95,6 +111,12 @@ class NovaladClient(BaseAPIClient):
             for file in tqdm(supported_files, desc="Uploading files"):
                 upload_url = self._upload_url(file)
                 self._upload_to_cloud(file, upload_url)
+
+        else:
+            raise InvalidArgumentException("You must provide either 'file_path' or 'folder_path'.")
+
+        if self.file_id is None:
+            raise APIError(message="Could not upload file")
 
     def run(self, url : str = None,
             skip_non_important_images : bool = True,
